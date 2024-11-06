@@ -1,0 +1,21 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Router from '../Routes/Router';
+import Header from '../Components/Header';
+
+const Layout = () => {
+  const location = useLocation();
+
+  
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
+
+  return (
+    <>
+      {!isAuthPage && <Header />}
+      <Router />
+      {!isAuthPage && <div className="footer">Footer</div>}
+    </>
+  );
+};
+
+export default Layout;
